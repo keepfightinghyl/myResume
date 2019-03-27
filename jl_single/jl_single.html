@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>我的简历</title>
+		<link rel="shortcut icon" href="http://m.qpic.cn/psb?/V13iUrLQ3PSPkj/3zMTUSe*ySGeXaEBbo3IDhZN080dBwhFEmlAxYIS2Ro!/b/dLwAAAAAAAAA&bo=AAXQAgAAAAARB.c!&rf=viewer_4" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+		<!--CDN-->
+		<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
+		<script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://cdn.staticfile.org/popper.js/1.12.5/umd/popper.min.js"></script>
+		<script src="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.19/jquery.touchSwipe.min.js"></script>
+		<script src="https://cdn.bootcss.com/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>
+		<!--Local-->
+		<!--<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
+		<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+		<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/jquery.mousewheel.min.js"></script>
+		<script src="js/jquery.touchSwipe.min.js" type="text/javascript" charset="utf-8"></script>-->
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			.limit {
+				overflow: hidden;
+				position: absolute;
+				width: 100%;
+				height: 100%;
+			}
+			
+			.content {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+			}
+			
+			.guide {
+				position: fixed;
+				height: 205px;
+				width: 75px;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				margin: auto;
+				z-index: 100;
+				display: none;
+				/*opacity: 0;*/
+				/*transition: all 1s;*/
+				/*background: black;*/
+			}
+			
+			.guide span {
+				width: 15px;
+				height: 15px;
+				/*float: left;*/
+				display: block;
+				border-radius: 50%;
+				margin: 20px;
+				background: rgba(0, 0, 0, .5);
+				cursor: pointer;
+			}
+			
+			@media only screen and (min-width: 400px) {
+				.guide {
+					display: block;
+					/*opacity: 1;*/
+				}
+			}
+			
+			.page {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+			}
+			
+			.nowpage {
+				background: lightpink!important;
+				transform: scale(1.5);
+			}
+			
+			.page1 {
+				top: 0;
+				width: 100%;
+				height: 100%;
+				color: white;
+			}
+			
+			.page1 img {
+				width: 0;
+				height: 150px;
+				box-shadow: 0 0 10px white;
+				border-radius: 50%;
+				margin-top: 100px;
+				margin-bottom: 50px;
+			}
+			
+			#daoyu {
+				font-weight: bolder;
+				border-bottom: 1px dashed white;
+			}
+			
+			.page1 p {
+				padding: 8px;
+				display: none;
+			}
+			
+			.page2 {
+				top: 100%;
+				width: 100%;
+				height: 100%;
+				background: lightslategrey;
+				color: white;
+			}
+			
+			.page2 h2 {
+				margin-top: 30px;
+				font-weight: bolder;
+			}
+			
+			.page2 img {
+				width: 160px;
+				height: 160px;
+				box-shadow: 0 0 10px white;
+				border-radius: 50%;
+			}
+			
+			.about {
+				height: 100px;
+				line-height: 100px;
+			}
+			
+			.page3 {
+				top: 200%;
+				width: 100%;
+				height: 100%;
+				background: lightgoldenrodyellow;
+			}
+			
+			.page3 h2 {
+				margin-top: 30px;
+				font-weight: bolder;
+			}
+			
+			.circle {
+				margin: 0 auto;
+				width: 250px;
+				height: 250px;
+				position: relative;
+				border: 2px dashed black;
+				border-radius: 50%;
+				animation: rotate 5s linear infinite;
+			}
+			
+			.circle div {
+				position: absolute;
+				border-radius: 50%;
+				width: 50px;
+				height: 50px;
+				background: rgba(0, 0, 0, .5);
+				line-height: 50px;
+				text-align: center;
+				font-weight: bolder;
+				color: white;
+				animation: self 5s linear infinite;
+				/*overflow: hidden;
+				text-overflow: ellipsis;*/
+			}
+			
+			.c1 {
+				top: -10%;
+				left: 40%;
+			}
+			
+			.c2 {
+				top: 15%;
+				left: -3%;
+			}
+			
+			.c3 {
+				top: 15%;
+				right: -3%;
+			}
+			
+			.c4 {
+				bottom: 15%;
+				left: -3%;
+			}
+			
+			.c5 {
+				bottom: 15%;
+				right: -3%;
+			}
+			
+			.c6 {
+				bottom: -10%;
+				left: 40%;
+			}
+			
+			@keyframes rotate {
+				from {
+					transform: rotate(0deg);
+				}
+				to {
+					transform: rotate(360deg);
+				}
+			}
+			
+			@keyframes self {
+				from {
+					transform: rotate(0deg);
+				}
+				to {
+					transform: rotate(-360deg);
+				}
+			}
+			
+			.page4 {
+				top: 300%;
+				width: 100%;
+				height: 100%;
+				background: lightskyblue;
+				color: white;
+				transform: skew(180deg);
+			}
+			
+			.page4 h2 {
+				margin-top: 30px;
+				font-weight: bolder;
+			}
+			
+			.page4 img {
+				width: 340px;
+				height: 180px;
+			}
+			
+			.page4 p {
+				font-size: 22px;
+			}
+			
+			.page5 {
+				top: 400%;
+				width: 100%;
+				height: 100%;
+				background: lightcyan;
+			}
+			
+			.page5 h2 {
+				margin-top: 30px;
+				margin-bottom: 30px;
+				font-weight: bolder;
+			}
+			
+			.page5 p {
+				margin: 0;
+				padding: 20px;
+				font-size: 30px;
+				display: none;
+			}
+			
+			.page5 p:nth-child(5) {
+				color: lightcoral;
+			}
+			
+			.page5 p:nth-child(2) {
+				color: lightgreen;
+			}
+			
+			.page5 p:nth-child(3) {
+				color: lightsalmon;
+			}
+			
+			.page5 p:nth-child(4) {
+				color: lightskyblue;
+			}
+			.r{
+				transition: transform 1s;
+				transform: rotateY(360deg);
+			}
+			.q{
+				transition: transform 1s;
+				transform: skew(0deg);
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="limit">
+			<div class="container-fluid content">
+				<div class="row page page1 text-center" style="background: lightseagreen;">
+					<div class="col-sm-12 col-md-6 offset-md-3">
+						<img src="http://m.qpic.cn/psb?/V13iUrLQ3PSPkj/1mor8zrpcoI3fpsNEoV7w3QcLBl1cyDWrGI9ssLau4Y!/b/dL4AAAAAAAAA&bo=OASgBQAAAAARB6k!&rf=viewer_4" />
+						<p id="daoyu">每一个程序员都有他的梦想，坚持不懈地追求它吧</p>
+						<p>我叫何云龙</p>
+						<p>一名有梦想的前端工程师</p>
+						<p>1223509289@qq.com</p>
+					</div>
+				</div>
+				<div class="row page page2 text-center">
+					<div class="col-sm-12 col-md-6 offset-md-3 about">
+						<h2>关于我</h2>
+					</div>
+					<div class="col-sm-12 col-md-6">
+						<img src="http://m.qpic.cn/psb?/V13iUrLQ3PSPkj/gds4weNjMCB660QJmetRdQNtHqyNh7LpNfATgeEuZX8!/b/dMAAAAAAAAAA&bo=LQMtAwAAAAARBzA!&rf=viewer_4" />
+					</div>
+					<div class="col-sm-12 col-md-6">
+						<p>就读于西南石油大学，专业是软件工程</p>
+						<p>英语等级：CET6 (470)</p>
+						<p>专业课程：面向对象程序设计 (94)，软件工程专业实践 (95)，软件工程综合实习 (良好)</p>
+						<p>平均绩点：3.0</p>
+					</div>
+				</div>
+				<div class="row page page3 text-center">
+					<div class="col-sm-12 col-md-6 offset-md-3">
+						<h2>专业技能</h2>
+					</div>
+					<div class="col-sm-12 col-md-6">
+						<div class="circle">
+							<div class="c1">HTML</div>
+							<div class="c2">CSS</div>
+							<div class="c3" style="line-height: 25px;">Java<br />Script</div>
+							<div class="c4">JQuery</div>
+							<div class="c5">Ajax</div>
+							<div class="c6" style="line-height: 25px;">Boot<br />Strap</div>
+						</div>
+					</div>
+					<div class="col-sm-12 col-md-6 text-left">
+						<p>代码文档结构清晰，有编写注释的习惯</p>
+						<p>熟悉DIV+CSS布局，熟悉CSS3新特性</p>
+						<p>熟悉JavaScript事件编程，熟悉DOM和BOM对象编程</p>
+						<p>熟悉JQuery选择器、操作DOM、JQuery事件编程</p>
+						<p>熟悉使用JavaScript和JQuery实现Ajax异步操作数据</p>
+						<p>熟悉BootStrap网格系统与BootStrap提供的UI组件</p>
+					</div>
+				</div>
+				<div class="row page page4 text-center">
+					<div class="col-sm-12 col-md-6 offset-md-3">
+						<h2>项目经历</h2>
+					</div>
+					<div class="col-sm-12 col-md-6">
+						<p>基于HTML5的漫威粉丝官方网站</p>
+						<img src="http://m.qpic.cn/psb?/V13iUrLQ3PSPkj/HnVY1MkIXwRrJPm3Z1q*WF4zu6CZ6.r4n4Gv3ZywXpI!/b/dFIBAAAAAAAA&bo=RgVZAgAAAAARFzg!&rf=viewer_4" />
+					</div>
+					<div class="col-sm-12 col-md-6">
+						<p>基于SSH框架的餐厅后台管理系统</p>
+						<img src="http://m.qpic.cn/psb?/V13iUrLQ3PSPkj/VKCn.LeaQWYqmDHYGtJ9ZIUXkzRWKdAZfLLqY4KciV8!/b/dL4AAAAAAAAA&bo=VQVYAgAAAAARBzo!&rf=viewer_4" />
+					</div>
+				</div>
+				<div class="row page page5 text-center">
+					<div class="col-sm-12 col-md-6 offset-md-3">
+						<h2>大笑江湖</h2>
+						<p>路漫漫其修远兮</p>
+						<p>吾将上下而求索</p>
+						<p>衣带渐宽终不悔</p>
+						<p>为依消得人憔悴</p>
+						<p>Our story just begin</p>
+					</div>
+				</div>
+			</div>
+			<div class="guide">
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+		</div>
+	</body>
+
+	<script type="text/javascript">
+		$(function() {
+			var num = 0;
+			$(".guide span").eq(0).addClass("nowpage").siblings().removeClass("nowpage");
+			$(".content").swipe({
+				//		事件源对象,滑动方向,滑动距离,滑动时间,手指个数
+				swipe: function(event, direction, distance, duration, fingerCount) {
+					console.log(direction);
+					if(direction == "up") {
+						num++;
+					} else if(direction == "down") {
+						num--;
+					}
+
+					if(num < 0) {
+						num = 0;
+					} else if(num > 4) {
+						num = 4;
+					}
+					$(".guide span").eq(num).addClass("nowpage").siblings().removeClass("nowpage");
+					$(".content").animate({
+						top: num * -1 * 100 + "%"
+					}, 500, function() {
+						startAnimation();
+					});
+				}
+			})
+			$(".content").mousewheel(function(e, delta) {
+				var fx = delta > 0 ? "up" : "down";
+				if(fx == "up") {
+					num--;
+				} else if(fx == "down") {
+					num++;
+				}
+				if(num < 0) {
+					num = 0;
+				} else if(num > 4) {
+					num = 4;
+				}
+				$(".guide span").eq(num).addClass("nowpage").siblings().removeClass("nowpage");
+				$(".content").animate({
+					top: num * -1 * 100 + "%"
+				}, 500, function() {
+					startAnimation();
+				});
+			});
+
+			$(".guide span").click(function() {
+				num = $(this).index();
+				$(this).addClass("nowpage").siblings().removeClass("nowpage");
+				$(".content").animate({
+					top: num * -100 + "%"
+				}, 500, function() {
+					startAnimation();
+				});
+			});
+			
+			$(".page1 img").animate({width:"150px"},2000,function(){
+				$(".page1 p").fadeIn(500);
+			});
+
+			function startAnimation() {
+				//第二页动画
+				if(num == 1) {
+					$(".page2").addClass("r");
+				}
+				if(num == 3) {
+					$(".page4").addClass("q");
+				}
+				if(num == 4){
+					$(".page5 p:nth-child(2)").fadeIn(1000,function(){
+						$(".page5 p:nth-child(3)").fadeIn(1000,function(){
+							$(".page5 p:nth-child(4)").fadeIn(1000,function(){
+								$(".page5 p:nth-child(5)").fadeIn(1000,function(){
+									$(".page5 p:nth-child(6)").fadeIn(1000);
+								})
+							})
+						})
+					})
+				}
+			}
+		})
+	</script>
+
+</html>
